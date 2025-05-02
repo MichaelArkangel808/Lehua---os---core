@@ -1,0 +1,21 @@
+Lehua---os---core/
+├── README.md
+├── .gitignore
+├── setup.sh (or setup.bat for Windows)
+├── /docs
+│   └── architecture.md
+├── /core
+│   ├── main.py
+│   ├── os_engine.py
+│   └── wearable_integration.py
+├── /modules
+│   ├── finance_automation/
+│   │   └── finance_bot.py
+│   ├── guardian_system/
+│   │   └── guardian_bracelet.py
+│   └── sovereign_tools/
+│       └── crypto_keys.py
+├── /configs
+│   └── system_config.json
+└── /tests
+    └── test_core.py
