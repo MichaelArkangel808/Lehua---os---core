@@ -1,0 +1,7 @@
+unzip Lehua_OS_Core.zip
+cd Lehua---os---core
+git init
+git remote add origin https://github.com/YOUR_USERNAME/Lehua---os---core.git
+git add .
+git commit -m "Initial core system commit"
+git push -u origin main
