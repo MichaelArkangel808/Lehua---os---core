@@ -1,0 +1,192 @@
+# Lehua 5.0 - Guardian Intelligence System
+
+Built for Michael Gardner's Fat Island Productions.  
+A hybrid AI framework for creative, financial, and spiritual power.
+
+- Guardian Mode
+- Wealth Engine
+- Timeline Vision Scanner
+- Modular Expansionfrom core.os_engine import launch_os
+
+if __name__ == "__main__":
+    launch_os()def launch_os():
+    print("Lehua 5.0 OS loaded.")
+    print("Launching Finance Bot...")
+    from modules.finance_automation.finance_bot import run_bot
+    run_bot()
+    print("\nLaunching Dashboard UI...")
+    from modules.finance_automation.dashboard import launch_dashboard
+    launch_dashboard()def run_bot():
+    print("Simulated Finance Bot Starting...")
+    print("BUY: 0.5 BTC @ $30,000")
+    print("SELL: 0.2 BTC @ $32,500")
+    print("BALANCE: $9600 | HOLDINGS: 0.3 BTC")def launch_dashboard():
+    print("Lehua 5.0 Dashboard Active:")
+    print("[1] Monitor Portfolio")
+    print("[2] Trigger Trade")
+    print("[3] Exit")def launch_dashboard():
+    print("Lehua 5.0 Dashboard Active:")
+    print("[1] Monitor Portfolio")
+    print("[2] Trigger Trade")
+    print("[3] Exit")def guardian_mode():
+    print("Guardian Mode Activated")
+    print("Armor: Dragon Nano-Wing Suit")
+    print("Energy Field: Plasma Shield | Frequency: Resonant Angelic")def wearable_sync():
+    print("Syncing SmartWood Watch + Shades")
+    print("Loading motion sensors, chip reader, and AR projection...")def generate_keys():
+    print("Generating sovereign access keypair...")
+    print("Public Key: ABC123...XYZ789")
+    print("Private Key stored securely.")Lehua 5.0 OS (Offline Build)
+----------------------------
+This is a Pydroid-compatible offline version of Lehua OS.
+No pip or internet required.
+
+Modules:
+- Finance Bot (Simulated)
+- Dashboard Interface
+- Guardian Armor Integration
+- Wearable Sync Systems
+- Sovereign Key GeneratorLehua5.0/
+├── main.py
+├── core/
+│   └── os_engine.py
+└── modules/
+    ├── finance_automation/
+    │   ├── finance_bot.py
+    │   └── dashboard.py
+    ├── guardian/
+    │   └── guardian_bracelet.py
+    ├── wearable/
+    │   └── wearable_integration.py
+    └── sovereign/
+        └── crypto_keys.pydef speak(message):
+    print(f"\n[Lehua OS]: {message}")
+
+def ask(prompt):
+    return input(f"[User]: {prompt} > ")from core.os_engine import launch_os
+from modules.interface.voice_terminal import speak
+
+if __name__ == "__main__":
+    speak("Aloha! This is Lehua 5.0, standing by.")
+    launch_os()from modules.interface.voice_terminal import speak, ask
+
+def launch_os():
+    speak("Welcome to Lehua OS. Which system would you like to activate?")
+    
+    while True:
+        speak("Options: [1] Finance Bot, [2] Dashboard, [3] Guardian Mode, [4] Keys, [5] Exit")
+        choice = ask("Enter option number")
+        
+        if choice == "1":
+            from modules.finance_automation.finance_bot import run_bot
+            run_bot()
+        elif choice == "2":
+            from modules.finance_automation.dashboard import launch_dashboard
+            launch_dashboard()
+        elif choice == "3":
+            from modules.guardian.guardian_bracelet import guardian_mode
+            guardian_mode()
+        elif choice == "4":
+            from modules.sovereign.crypto_keys import generate_keys
+            generate_keys()
+        elif choice == "5":
+            speak("Logging off. A hui hou!")
+            break
+        else:
+            speak("Invalid option. Try again.")modules/interface/try:
+    import pyttsx3
+    tts_engine = pyttsx3.init()
+    voice_enabled = True
+except:
+    voice_enabled = False
+
+def speak(message):
+    print(f"\n[Lehua OS]: {message}")
+    if voice_enabled:
+        tts_engine.say(message)
+        tts_engine.runAndWait()
+
+def ask(prompt):
+    print(f"[User]: {prompt} > ", end="")
+    return input()pip install pyobjc  # for iOS
+pip install pywin32 # for Windows (not needed for Android)from modules.interface.gui_hud import launch_gui
+launch_gui()from modules.interface.gui_hud import launch_gui
+launch_gui()from modules.interface.music_player import play_background_music
+play_background_music("lehua_theme.mp3")  # Drop your MP3 in same folderfrom modules.interface.avatar_gui import display_lehua_avatar
+display_lehua_avatar("Welcome aboard, Commander.")from modules.user.login import load_profile
+load_profile()from modules.tools.file_explorer import open_file_explorer
+open_file_explorer()from modules.tools.camera_tool import capture_photo
+capture_photo()from modules.tools.web_launcher import open_mission_site
+open_mission_site()from lehua_launcher import lehua_launcher
+lehua_launcher()from flask import Flask, request, jsonify
+from lehua_core import process_command
+from data_module import PROJECTS, FAMILY, VISION
+import tools_library as tools
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({
+        "message": "Lehua 5.0 online. Sovereign AI OS initialized.",
+        "status": "running",
+        "projects": list(PROJECTS.keys())
+    })
+
+@app.route('/command', methods=['POST'])
+def command():
+    data = request.json
+    response = process_command(data.get('input', ''), data)
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)from data_module import PROJECTS, FAMILY, VISION
+import tools_library as tools
+
+def process_command(command, context=None):
+    command = command.lower()
+    response = {"output": "Command not understood."}
+
+    if "list projects" in command:
+        response["output"] = f"Active Projects: {', '.join(PROJECTS.keys())}"
+    
+    elif "summon vision" in command:
+        response["output"] = VISION
+    
+    elif "family" in command:
+        response["output"] = f"Family Unit: {', '.join(FAMILY)}"
+    
+    elif "launch bot" in command:
+        result = tools.simulate_trading_bot()
+        response["output"] = f"Trading Bot Status: {result}"
+
+    elif "generate pitch" in command:
+        result = tools.create_pitch("Castem Away, Bra", PROJECTS["Castem Away, Bra"])
+        response["output"] = result
+    
+    # Expand with your own command mapping
+
+    return responsefrom lehua_launcher import lehua_launcher
+lehua_launcher()from modules.tools.web_launcher import open_mission_site
+open_mission_site()from modules.tools.camera_tool import capture_photo
+capture_photo()from modules.user.login import load_profile
+load_profile()from modules.tools.file_explorer import open_file_explorer
+open_file_explorer()from modules.interface.avatar_gui import display_lehua_avatar
+display_lehua_avatar("Welcome aboard, Commander.")from modules.interface.music_player import play_background_music
+play_background_music("lehua_theme.mp3")  # Drop your MP3 in same folderpip install pyobjc  # for iOS
+pip install pywin32 # for Windows (not needed for Android)try:
+    import pyttsx3
+    tts_engine = pyttsx3.init()
+    voice_enabled = True
+except:
+    voice_enabled = False
+
+def speak(message):
+    print(f"\n[Lehua OS]: {message}")
+    if voice_enabled:
+        tts_engine.say(message)
+        tts_engine.runAndWait()
+
+def ask(prompt):
+    print(f"[User]: {prompt} > ", end="")
+    return input()
