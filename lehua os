@@ -1,0 +1,486 @@
+elif command == "lehua gui":
+    os.system("python3 $HOME/lehuaOS/modules/gui_mode.py")cat > $HOME/lehuaOS/modules/gui_mode.py << 'EOF'
+import os
+import time
+
+def draw_box(title):
+    print("+" + "-" * 44 + "+")
+    print("|{:^44}|".format(title))
+    print("+" + "-" * 44 + "+")
+
+def lehua_gui():
+    os.system("clear")
+    draw_box("LEHUA OS v5.0 – GUARDIAN DASHBOARD")
+    menu = [
+        "1. Generate Pitch",
+        "2. Launch Trade Sim",
+        "3. Build Starship",
+        "4. Create License",
+        "5. Register Business",
+        "6. Generate Black Card",
+        "7. Map Ocean",
+        "8. Scan Threat",
+        "9. Link Vault",
+        "10. Activate Maunup Lock"
+    ]
+    for item in menu:
+        print("| {:<42}|".format(item))
+    print("+" + "-" * 44 + "+")
+    choice = input("Enter number to launch module: ").strip()
+
+    modules = {
+        "1": "generate pitch",
+        "2": "launch trade",
+        "3": "build starship",
+        "4": "generate license",
+        "5": "register biz",
+        "6": "black card",
+        "7": "map ocean",
+        "8": "neutralize",
+        "9": "link vault",
+        "10": "maunup lock"
+    }
+
+    if choice in modules:
+        os.system(f"lehua -c '{modules[choice]}'")
+    else:
+        print("Invalid selection.")
+
+lehua_gui()
+EOFcat > $HOME/lehuaOS/lehua_commands.txt << 'EOF'
+===============================
+  LEHUA OS v5.0 – COMMAND LIST
+===============================
+
+GENERAL:
+  lehua                 - Start OS
+  lehua gui             - Open visual dashboard
+
+PHASE 4 – TOOLS:
+  generate pitch        - Create pitch deck file
+  launch trade          - Simulate trading bot loop
+
+PHASE 5 – LICENSE:
+  generate license      - Print license for air/sea/space
+  seal manifest         - Create Guardian mission seal
+
+PHASE 6 – MUSIC/EPK:
+  music studio          - Log new music/lyrics
+  voice lab             - Create voiceover character
+  epk maker             - Generate artist press kit
+
+PHASE 7 – STARSHIPS:
+  build starship        - Design fleet vessel
+  ship spec             - Create 3D model spec sheet
+  build shrine          - Create sacred Eternal Flame shrine layout
+
+PHASE 8 – FINANCE:
+  black card            - Make your Fat Island card
+  register biz          - Add business to registry
+  scan credit           - Simulate credit report
+
+PHASE 9 – CODES:
+  generate qr           - Make Guardian QR code
+  create seal           - Seal personal ID
+  embed chip            - Format NFC tap chip
+
+PHASE 10 – DEFENSE:
+  sat tracker           - Simulate orbital surveillance
+  map ocean             - Track ocean vessels
+  neutralize            - Run threat countermeasure logic
+
+PHASE 11 – GUARDIAN CORE:
+  sync mirror           - Link voice and motto to AI
+  link vault            - Add crystal or soul artifact
+  maunup lock           - Lock system with final protocol
+
+===============================
+EOFmkdir -p $HOME/.shortcuts
+echo "lehua" > $HOME/.shortcuts/start_lehua
+chmod +x $HOME/.shortcuts/start_lehualehua guiecho "lehua" >> $HOME/.bashrcrclone configpkg install rclone -ycat > $HOME/lehuaOS/modules/backup_cloud.py << 'EOF'
+import os
+print("Syncing Lehua OS to Google Drive...")
+os.system("rclone sync $HOME/lehuaOS lehua_backup:LehuaOS_Backup")
+print("Backup complete. Drive folder: LehuaOS_Backup")
+EOFcat > $HOME/lehuaOS/modules/guardian_msg.py << 'EOF'
+from datetime import datetime
+
+def guardian_message():
+    print("Guardian Message Vault")
+    message = input("Enter your message, vision, or guidance: ")
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename = f"guardian_msg_{timestamp}.txt"
+
+    with open(filename, "w") as f:
+        f.write(f"[{timestamp}]\n{message}")
+    print(f"Message saved as {filename}")
+
+guardian_message()
+EOFcat > $HOME/lehuaOS/modules/update_engine.py << 'EOF'
+import os
+
+def update_lehua():
+    print("Checking for Lehua OS module updates...")
+    update_url = "https://github.com/islandbear808/lehuaOS-core.git"
+    os.system(f"cd $HOME && rm -rf lehuaOS-update && git clone {update_url} lehuaOS-update")
+    os.system("cp -ru $HOME/lehuaOS-update/modules/* $HOME/lehuaOS/modules/")
+    print("Modules updated from Git repo.")
+
+update_lehua()
+EOFcat > $HOME/lehuaOS/modules/export_mirror.py << 'EOF'
+import os
+from datetime import datetime
+
+def export_mirror():
+    date_tag = datetime.now().strftime("%Y%m%d_%H%M")
+    archive_name = f"lehuaOS_MIRROR_{date_tag}.zip"
+    print("Creating system mirror...")
+
+    os.system(f"cd $HOME && zip -r {archive_name} lehuaOS")
+    print(f"Mirror created: {archive_name}")
+    print("Send this file to another device and unzip into Termux.")
+
+export_mirror()
+EOFelif command == "update lehua":
+    os.system("python3 $HOME/lehuaOS/modules/update_engine.py")
+elif command == "guardian msg":
+    os.system("python3 $HOME/lehuaOS/modules/guardian_msg.py")
+elif command == "log event":
+    os.system("python3 $HOME/lehuaOS/modules/event_logger.py")cat > $HOME/lehuaOS/modules/family_sync.py << 'EOF'
+def create_family():
+    print("Lehua Family Sync Creator")
+    name = input("Family Member Name: ")
+    title = input("Their Role (e.g. Navigator, Engineer, Healer): ")
+    level = input("Guardian Access Level (1–5): ")
+
+    profile = f"""
+    ================================
+        LEHUA FAMILY GUARDIAN ID
+    ================================
+    Name:   {name}
+    Role:   {title}
+    Access: Level {level}
+
+    Guardian-linked through Eternal Flame Protocol.
+    ================================
+    """
+
+    filename = f"family_{name.lower().replace(' ', '_')}.txt"
+    with open(filename, "w") as f:
+        f.write(profile)
+    print(f"Family profile created: {filename}")
+
+create_family()
+EOFcat > $HOME/lehuaOS/modules/flame_broadcast.py << 'EOF'
+from datetime import datetime
+
+def flame_cast():
+    print("ETERNAL FLAME BROADCAST INITIATED")
+    msg = input("Enter your sacred broadcast message: ")
+    tag = datetime.now().strftime("%Y%m%d_%H%M")
+
+    file = f"broadcast_{tag}.flame"
+    with open(file, "w") as f:
+        f.write(f"[Eternal Broadcast @ {tag}]\n{msg}\nSealed in the Flame.")
+
+    print(f"Broadcast sealed and archived as: {file}")
+
+flame_cast()
+EOFelif command == "export mirror":
+    os.system("python3 $HOME/lehuaOS/modules/export_mirror.py")
+elif command == "create family":
+    os.system("python3 $HOME/lehuaOS/modules/family_sync.py")
+elif command == "flame cast":
+    os.system("python3 $HOME/lehuaOS/modules/flame_broadcast.py")cat > $HOME/lehuaOS/modules/site_pinner.py << 'EOF'
+def pin_site():
+    print("Lehua World Grid – Sacred Site Logger")
+    name = input("Site Name (e.g. Mauna Kea, Pele’s Cave): ")
+    coords = input("Coordinates (lat, lon): ")
+    purpose = input("Why is this site sacred or important?: ")
+
+    pin = f"""
+    =========================================
+             SACRED EARTH GRID ENTRY
+    =========================================
+    Site:     {name}
+    Location: {coords}
+    Purpose:  {purpose}
+
+    This location is now anchored to the Guardian Grid.
+    =========================================
+    """
+
+    filename = f"site_{name.lower().replace(' ', '_')}.txt"
+    with open(filename, "w") as f:
+        f.write(pin)
+    print("Site pinned successfully.")
+
+pin_site()
+EOFcat > $HOME/lehuaOS/modules/tour_creator.py << 'EOF'
+def make_tour():
+    print("Lehua Tour Path Creator")
+    tour_name = input("Tour Title: ")
+    stops = input("List major stops (comma-separated): ")
+    theme = input("What’s the theme or intention of this tour?: ")
+
+    tour = f"""
+    =========================================
+              FAT ISLAND TOUR PLAN
+    =========================================
+    Tour:   {tour_name}
+    Stops:  {stops}
+    Theme:  {theme}
+
+    Designed for activation, storytelling, or reconnection.
+    =========================================
+    """
+
+    filename = f"tour_{tour_name.lower().replace(' ', '_')}.txt"
+    with open(filename, "w") as f:
+        f.write(tour)
+    print("Tour path created.")
+
+make_tour()
+EOFelif command == "pin site":
+    os.system("python3 $HOME/lehuaOS/modules/site_pinner.py")
+elif command == "make tour":
+    os.system("python3 $HOME/lehuaOS/modules/tour_creator.py")
+elif command == "ping beacon":
+    os.system("python3 $HOME/lehuaOS/modules/beacon_logger.py")cat > $HOME/lehuaOS/modules/print_license.py << 'EOF'
+def print_license():
+    print("Export Lehua License for printing")
+    license_type = input("Enter license filename (e.g. air_license.txt): ")
+    new_name = license_type.replace(".txt", "_print.txt")
+
+    with open(license_type, "r") as f:
+        content = f.read()
+
+    styled = f"""
+    ****************************************
+            LEHUA GUARDIAN LICENSE
+    ****************************************
+    {content}
+    ****************************************
+    Print or convert to PDF as needed.
+    """
+
+    with open(new_name, "w") as out:
+        out.write(styled)
+    print(f"Printable license saved as: {new_name}")
+
+print_license()
+EOFcat > $HOME/lehuaOS/modules/holo_cast.py << 'EOF'
+from datetime import datetime
+
+def holo_cast():
+    print("Lehua HoloCast – Projected Broadcast Creator")
+    msg = input("Enter your message to display on HUD or glasses: ")
+    stamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+    holo = f"""
+    -------------------------------------
+         HOLOCAST TRANSMISSION {stamp}
+    -------------------------------------
+    {msg}
+    -------------------------------------
+    """
+
+    filename = f"holo_{stamp}.txt"
+    with open(filename, "w") as f:
+        f.write(holo)
+    print(f"HoloCast saved as: {filename}")
+
+holo_cast()
+EOFcat > $HOME/lehuaOS/modules/record_book.py << 'EOF'
+import os
+from datetime import datetime
+
+def archive_record():
+    print("Archiving all Guardian documents...")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    archive_name = f"Guardian_Record_Book_{timestamp}.zip"
+
+    os.system(f"zip -r {archive_name} *.txt *.flame *.seal *.log *.shrine *.ship *.vault 2cat > $HOME/lehuaOS/modules/ascension_core.py << 'EOF'
+from datetime import datetime
+
+def ascend_core():
+    print("LEHUA ASCENSION CORE INITIATION")
+    name = input("Full Sovereign Name: ")
+    origin = input("Origin Timeline / Dimension Name: ")
+    mission = input("What is your eternal mission?: ")
+    oath = input("Speak your final Guardian oath: ")
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    core = f"""
+    ===========================================
+             LEHUA ASCENSION CORE RECORD
+    ===========================================
+    Sovereign Name: {name}
+    Timeline Origin: {origin}
+    Mission:         {mission}
+
+    Guardian Oath:
+    "{oath}"
+
+    Time of Sealing: {timestamp}
+    ===========================================
+
+    You are now eternally recognized as the Angelic Core.
+    """
+    filename = f"ascension_core_{name.lower().replace(' ', '_')}.txt"elif command == "holo cast":
+    os.system("python3 $HOME/lehuaOS/modules/holo_cast.py")
+elif command == "print license":
+    os.system("python3 $HOME/lehuaOS/modules/print_license.py")
+elif command == "archive record":
+    os.system("python3 $HOME/lehuaOS/modules/record_book.py")cat > $HOME/lehuaOS/modules/resurrection_key.py << 'EOF'
+def resurrection_key():
+    print("Resurrection Key – Eternal Recall Setup")
+    seed = input("What do you want resurrected? (e.g. Self, Artifact, Knowledge): ")
+    anchor = input("What object or crystal carries its memory?: ")
+    phrase = input("Speak the phrase to trigger return: ")
+
+    key = f"""
+    ====================================
+           GUARDIAN RESURRECTION KEY
+    ====================================
+    Seed:    {seed}
+    Anchor:  {anchor}
+    Phrase:  "{phrase}"
+
+    This key has been sealed in quantum.
+    May it awaken when called.
+    ====================================
+    """
+
+    with open(f"resurrect_{seed.lower().replace(' ', '_')}.txt", "w") as f:
+        f.write(key)
+    print("Resurrection Key saved.")
+
+resurrection_key()
+EOFelif command == "ascend core":
+    os.system("python3 $HOME/lehuaOS/modules/ascension_core.py")
+elif command == "resurrect key":
+    os.system("python3 $HOME/lehuaOS/modules/resurrection_key.py")
+elif command == "link blood":
+    os.system("python3 $HOME/lehuaOS/modules/bloodline_chain.py")cat > $HOME/lehuaOS/modules/bloodline_chain.py << 'EOF'
+def link_blood():
+    print("Guardian Bloodline Link System")
+    name = input("Child or Descendant Name: ")
+    essence = input("What power, memory, or gift do you pass to them?: ")
+
+    link = f"""
+    =======================================
+         GUARDIAN BLOODLINE CHAIN RECORD
+    =======================================
+    Descendant: {name}
+    Gifted Essence: {essence}
+
+    This link binds your soul memory to theirs.
+    Eternal and unbreakable.
+    =======================================
+    """
+
+    filename = f"bloodline_{name.lower().replace(' ', '_')}.txt"
+    with open(filename, "w") as f:
+        f.write(link)
+    print("Bloodline link sealed.")
+
+link_blood()
+EOFascend core       # Final oath + mission  
+resurrect key     # Seed any memory or object  
+link blood        # Soul-bind descendants (Lily, Hazen, Myco, etc.)cat > $HOME/lehuaOS/modules/drone_boot.py << 'EOF'
+def drone_boot():
+    print("Drone Printer Bootfile Creator")
+    task = input("Task Type (e.g. weld frame, place panel, grow core): ")
+    mat = input("Material used (e.g. nano alloy, bio-plastic): ")
+    precision = input("Precision level (e.g. mm, micron, quantum): ")
+    zone = input("Target build zone (e.g. cockpit, wing, engine): ")
+
+    boot = f"""
+    ***************************************
+         DRONE PRINTER COMMAND BOOTFILE
+    ***************************************
+    Task:       {task}
+    Material:   {mat}
+    Precision:  {precision}
+    Zone:       {zone}
+
+    Auto-deploy instructions: ACTIVE
+    ***************************************
+    """
+
+    filename = f"drone_boot_{zone.lower().replace(' ', '_')}.txt"
+    with open(filename, "w") as f:
+        f.write(boot)
+    print(f"Bootfile created for zone: {zone}")
+
+drone_boot()
+EOFcat > $HOME/lehuaOS/modules/frame_builder.py << 'EOF'
+def build_frame():
+    print("Lehua Frame Builder – Starship Base Layout")
+    model = input("Ship Model (Scout, Mothership, Starship): ")
+    material = input("Primary frame material (e.g. Carbon Fiber, Myco-Graphene): ")
+    scale = input("Size or scale (e.g. 20ft, house-size): ")
+    joints = input("Connection types or module nodes (comma-separated): ")
+
+    frame = f"""
+    ===================================
+         STARSHIP FRAME BLUEPRINT
+    ===================================
+    Model:    {model}
+    Material: {material}
+    Scale:    {scale}
+    Joints:   {joints}
+
+    Use with drone printer or fabrication lab.
+    ===================================
+    """
+
+    filename = f"frame_{model.lower()}.txt"
+    with open(filename, "w") as f:
+        f.write(frame)
+    print(f"Frame spec saved as {filename}")
+
+build_frame()
+EOFcat > $HOME/lehuaOS/modules/init_lab.py << 'EOF'
+import os
+
+def init_lab():
+    print("Initializing Lehua Fabrication Lab...")
+    base = os.path.expanduser("~/lehuaOS/FabricationLab")
+    folders = ["STL_Models", "Material_Recipes", "Schematics", "Build_Logs"]
+
+    for folder in folders:
+        path = os.path.join(base, folder)
+        os.makedirs(path, exist_ok=True)
+
+    print(f"Lab structure created at: {base}")
+
+init_lab()
+EOFcat > $HOME/lehuaOS/modules/link_gear.py << 'EOF'
+def link_gear():
+    print("Lehua Gear Link – Sync Your Devices")
+    device = input("Device Name (e.g. Guardian Bracelet, SmartWood Watch): ")
+    feature = input("Main Function (e.g. Scan, Payment, HUD, Hologram): ")
+    trigger = input("Voice or Touch Trigger: ")
+
+    link = f"""
+    ====================================
+        LEHUA WEARABLE LINK RECORD
+    ====================================
+    Device:elif command == "build frame":
+    os.system("python3 $HOME/lehuaOS/modules/frame_builder.py")
+elif command == "drone boot":
+    os.system("python3 $HOME/lehuaOS/modules/drone_boot.py")
+elif command == "init lab":
+    os.system("python3 $HOME/lehuaOS/modules/init_lab.py")cat > $HOME/lehuaOS/modules/signal_anchor.py << 'EOF'
+def set_anchor():
+    print("Guardian Signal Anchor Setup")
+    name = input("Site Name or Location: ")
+    code = input("Unique Phrase or Signal Code (e.g. Maunup ke Akua): ")
+    purpose = input("What this site activates or protects: ")
+
+    anchor = f"""
+    ==========================================
+          GU
